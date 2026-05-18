@@ -8,7 +8,7 @@
  *    - GITHUB_TOKEN : your GitHub personal access token (classic, repo scope)
  *    - GITHUB_OWNER : repository owner (username or org)
  *    - GITHUB_REPO  : repository name
- *    - GITHUB_BRANCH: branch name (default: main)
+ *    - GITHUB_BRANCH: branch name (default: master)
  *    - GITHUB_PATH  : path inside repo (default: public/data/cars.json)
  * 4. Run setupSheet() once to initialise the sheet.
  * 5. Set an installable onChange trigger (Edit > Current project's triggers):
@@ -98,6 +98,9 @@ function onSheetChange(e) {
     return;
   }
 
+  Logger.log('[DEBUG] raw data rows: ' + JSON.stringify(data));
+  Logger.log('[DEBUG] parsed cars: ' + JSON.stringify(rows));
+
   const json = JSON.stringify(rows, null, 2);
   pushToGitHub(json);
 }
@@ -107,7 +110,7 @@ function pushToGitHub(jsonContent) {
   const token    = PropertiesService.getScriptProperties().getProperty('GITHUB_TOKEN');
   const owner    = PropertiesService.getScriptProperties().getProperty('GITHUB_OWNER');
   const repo     = PropertiesService.getScriptProperties().getProperty('GITHUB_REPO');
-  const branch   = PropertiesService.getScriptProperties().getProperty('GITHUB_BRANCH') || 'main';
+  const branch   = PropertiesService.getScriptProperties().getProperty('GITHUB_BRANCH') || 'master';
   const path     = PropertiesService.getScriptProperties().getProperty('GITHUB_PATH') || 'public/data/cars.json';
 
   if (!token || !owner || !repo) {
@@ -124,7 +127,8 @@ function pushToGitHub(jsonContent) {
       headers: { Authorization: 'Bearer ' + token },
       muteHttpExceptions: true,
     });
-    const refData = JSON.parse(refRes);
+    Logger.log('[GitHub REF Response] ' + refRes.getContentText());
+    const refData = JSON.parse(refRes.getContentText());
     refSha = refData.object.sha;
   } catch (e) {
     Logger.log('❌ Failed to get branch ref: ' + e.message);
@@ -138,14 +142,21 @@ function pushToGitHub(jsonContent) {
       headers: { Authorization: 'Bearer ' + token },
       muteHttpExceptions: true,
     });
+    Logger.log('[GitHub GET Response] ' + fileRes.getContentText());
     if (fileRes.getResponseCode() === 200) {
-      fileSha = JSON.parse(fileRes).sha;
+      const fileData = JSON.parse(fileRes.getContentText());
+      fileSha = fileData.sha;
     }
   } catch (e) {
     // File doesn't exist yet — that's fine
   }
 
-  // 3. Create or update the file
+  // 3. Validate and create/update the file
+  if (!jsonContent || jsonContent.trim() === '') {
+    Logger.log('❌ jsonContent vide — rien à pusher.');
+    return;
+  }
+
   const contentBase64 = Utilities.base64Encode(jsonContent);
   const body = {
     message: '🔄 Auto-sync cars from Google Sheets',
@@ -162,6 +173,8 @@ function pushToGitHub(jsonContent) {
     muteHttpExceptions: true,
   });
 
+  Logger.log('[GitHub PUT Response] ' + commitRes.getContentText());
+
   if (commitRes.getResponseCode() === 200 || commitRes.getResponseCode() === 201) {
     Logger.log('✅ Successfully pushed cars.json to GitHub.');
   } else {
@@ -172,4 +185,28 @@ function pushToGitHub(jsonContent) {
 // ── Manual trigger (can be run from editor) ──────────────────────────────────
 function manualSync() {
   onSheetChange({ changeType: 'EDIT' });
+}
+
+// ── Debug: inspect raw sheet data ───────────────────────────────────────────
+function testExport() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('Cars');
+  if (!sheet) {
+    Logger.log('❌ Sheet "Cars" not found.');
+    return;
+  }
+
+  const data = sheet.getDataRange().getValues();
+  Logger.log('[testExport] raw data: ' + JSON.stringify(data));
+
+  const rows = [];
+  for (let i = 1; i < data.length; i++) {
+    const row = data[i];
+    rows.push({
+      id: i,
+      name: String(row[0] || '').trim(),
+      price: row[1],
+    });
+  }
+
+  Logger.log('[testExport] parsed rows: ' + JSON.stringify(rows));
 }
