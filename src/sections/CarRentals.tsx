@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Star, Users, DoorOpen, Settings2, Fuel, ArrowRight, X } from 'lucide-react';
 import { img } from '@/lib/utils';
-import { DateField } from '@/components/DateField';
+import { DatePicker } from '@/components/DatePicker';
 
 interface Car {
   id: number;
@@ -98,14 +98,14 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
           </div>
 
           <div className="grid grid-cols-2 gap-3">
-            <DateField
+            <DatePicker
               label="Date de départ"
               value={form.startDate}
               onChange={(v) => setForm((p) => ({ ...p, startDate: v }))}
               min={today}
               required
             />
-            <DateField
+            <DatePicker
               label="Date de retour"
               value={form.endDate}
               onChange={(v) => setForm((p) => ({ ...p, endDate: v }))}

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import { img } from '@/lib/utils';
-import { DateField } from '@/components/DateField';
+import { DatePicker } from '@/components/DatePicker';
 
 const carTypes = ['Toutes', 'Berline', 'Sport', 'Jeep', 'Limousine'];
 const locations = ['Broklyn Street', 'Houston', 'Texas', 'New York'];
@@ -135,7 +135,7 @@ export default function Hero() {
               <label className="block text-white text-[13px] font-inter font-medium mb-2">
                 Date de prise en charge
               </label>
-              <DateField
+              <DatePicker
                   value={pickupDate}
                   onChange={setPickupDate}
                 />
@@ -144,7 +144,7 @@ export default function Hero() {
               <label className="block text-white text-[13px] font-inter font-medium mb-2">
                 Date de retour
               </label>
-              <DateField
+              <DatePicker
                   value={returnDate}
                   onChange={setReturnDate}
                 />

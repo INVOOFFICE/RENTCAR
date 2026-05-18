@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { MousePointerClick, MapPin, ChevronDown } from 'lucide-react';
 import { img } from '@/lib/utils';
-import { DateField } from '@/components/DateField';
+import { DatePicker } from '@/components/DatePicker';
 
 const carTypes = ['Toutes', 'Berline', 'Sport', 'Jeep', 'Limousine'];
 const locations = ['Broklyn Street', 'Houston', 'Texas', 'New York'];
@@ -109,12 +109,12 @@ export default function About() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
-                  <DateField
+                  <DatePicker
                     label="Date de départ"
                     value={fromDate}
                     onChange={setFromDate}
                   />
-                  <DateField
+                  <DatePicker
                     label="Date de retour"
                     value={toDate}
                     onChange={setToDate}
