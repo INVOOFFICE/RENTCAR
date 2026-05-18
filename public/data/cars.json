@@ -41,7 +41,7 @@
     "transmission": "Automatic",
     "doors": 4,
     "fuel": "Diesel",
-    "image": "/images/car-placeholder.jpg"
+    "image": "https://www.hyundai.com/content/dam/hyundai/ma/fr/images/temp/202448081148/kona-hybrid-560-1.jpg"
   },
   {
     "id": 5,
