@@ -90,8 +90,8 @@
   {
     "id": 9,
     "name": "Fiat 500",
-    "price": 400,
-    "duration": "Day",
+    "price": 431,
+    "duration": "Per Day",
     "seats": 4,
     "transmission": "Manual",
     "doors": 2,
