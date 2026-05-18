@@ -76,18 +76,7 @@
     @apply bg-background text-foreground font-inter antialiased;
   }
 
-  input[type="date"] {
-    color-scheme: light;
-    position: relative;
-  }
 
-  input[type="date"]:not(:focus):invalid {
-    color: transparent !important;
-  }
-
-  input[type="date"]:not(:focus):invalid::-webkit-datetime-edit {
-    color: transparent !important;
-  }
 }
 
 @layer utilities {

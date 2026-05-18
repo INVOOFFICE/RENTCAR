@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Star, Users, DoorOpen, Settings2, Fuel, ArrowRight, X } from 'lucide-react';
 import { img } from '@/lib/utils';
+import { DateField } from '@/components/DateField';
 
 interface Car {
   id: number;
@@ -97,38 +98,20 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
           </div>
 
           <div className="grid grid-cols-2 gap-3">
-            <div>
-              <label className="block text-remons-dark text-sm font-inter font-medium mb-1.5">
-                Date de départ
-              </label>
-              <div className="relative">
-                <input
-                  type="date"
-                  name="startDate"
-                  required
-                  value={form.startDate}
-                  onChange={handleChange}
-                  min={today}
-                  className="w-full border border-remons-border rounded-xl px-4 py-3 text-sm font-inter focus:outline-none focus:ring-2 focus:ring-remons-primary"
-                />
-              </div>
-            </div>
-            <div>
-              <label className="block text-remons-dark text-sm font-inter font-medium mb-1.5">
-                Date de retour
-              </label>
-              <div className="relative">
-                <input
-                  type="date"
-                  name="endDate"
-                  required
-                  value={form.endDate}
-                  onChange={handleChange}
-                  min={today}
-                  className="w-full border border-remons-border rounded-xl px-4 py-3 text-sm font-inter focus:outline-none focus:ring-2 focus:ring-remons-primary"
-                />
-              </div>
-            </div>
+            <DateField
+              label="Date de départ"
+              value={form.startDate}
+              onChange={(v) => setForm((p) => ({ ...p, startDate: v }))}
+              min={today}
+              required
+            />
+            <DateField
+              label="Date de retour"
+              value={form.endDate}
+              onChange={(v) => setForm((p) => ({ ...p, endDate: v }))}
+              min={today}
+              required
+            />
           </div>
 
           <div>

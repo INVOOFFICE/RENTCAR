@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ChevronLeft, ChevronRight, ChevronDown } from 'lucide-react';
 import { img } from '@/lib/utils';
+import { DateField } from '@/components/DateField';
 
 const carTypes = ['Toutes', 'Berline', 'Sport', 'Jeep', 'Limousine'];
 const locations = ['Broklyn Street', 'Houston', 'Texas', 'New York'];
@@ -13,6 +14,8 @@ export default function Hero() {
   const band1Ref = useRef<HTMLDivElement>(null);
   const band2Ref = useRef<HTMLDivElement>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [pickupDate, setPickupDate] = useState('');
+  const [returnDate, setReturnDate] = useState('');
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -132,23 +135,19 @@ export default function Hero() {
               <label className="block text-white text-[13px] font-inter font-medium mb-2">
                 Date de prise en charge
               </label>
-              <div className="relative">
-                <input
-                  type="date"
-                  className="w-full bg-white rounded-xl px-4 py-3.5 font-inter text-remons-dark text-sm focus:outline-none focus:ring-2 focus:ring-white/30"
+              <DateField
+                  value={pickupDate}
+                  onChange={setPickupDate}
                 />
-              </div>
             </div>
             <div>
               <label className="block text-white text-[13px] font-inter font-medium mb-2">
                 Date de retour
               </label>
-              <div className="relative">
-                <input
-                  type="date"
-                  className="w-full bg-white rounded-xl px-4 py-3.5 font-inter text-remons-dark text-sm focus:outline-none focus:ring-2 focus:ring-white/30"
+              <DateField
+                  value={returnDate}
+                  onChange={setReturnDate}
                 />
-              </div>
             </div>
           </div>
 

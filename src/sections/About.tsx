@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { MousePointerClick, MapPin, ChevronDown } from 'lucide-react';
 import { img } from '@/lib/utils';
+import { DateField } from '@/components/DateField';
 
 const carTypes = ['Toutes', 'Berline', 'Sport', 'Jeep', 'Limousine'];
 const locations = ['Broklyn Street', 'Houston', 'Texas', 'New York'];
@@ -19,6 +21,8 @@ const features = [
 ];
 
 export default function About() {
+  const [fromDate, setFromDate] = useState('');
+  const [toDate, setToDate] = useState('');
   const sectionRef = useScrollAnimation<HTMLElement>({ animation: 'fadeInUp' });
   const leftRef = useScrollAnimation<HTMLDivElement>({
     animation: 'fadeInUp',
@@ -105,22 +109,16 @@ export default function About() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-2">
-                  <div>
-                      <label className="block text-white text-[12px] font-inter font-medium mb-1.5">
-                        Date de départ
-                      </label>
-                      <div className="relative">
-                        <input type="date" className="w-full bg-white rounded-lg px-3 py-2.5 font-inter text-remons-dark text-sm focus:outline-none" />
-                      </div>
-                  </div>
-                  <div>
-                      <label className="block text-white text-[12px] font-inter font-medium mb-1.5">
-                        Date de retour
-                      </label>
-                      <div className="relative">
-                        <input type="date" className="w-full bg-white rounded-lg px-3 py-2.5 font-inter text-remons-dark text-sm focus:outline-none" />
-                      </div>
-                  </div>
+                  <DateField
+                    label="Date de départ"
+                    value={fromDate}
+                    onChange={setFromDate}
+                  />
+                  <DateField
+                    label="Date de retour"
+                    value={toDate}
+                    onChange={setToDate}
+                  />
                 </div>
 
                 <div>
