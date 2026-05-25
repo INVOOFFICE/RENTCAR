@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { Users, DoorOpen, Settings2, Fuel, ArrowRight, X } from 'lucide-react';
 import { img } from '@/lib/utils';
@@ -30,6 +31,7 @@ function encodePayload(payload: unknown) {
 }
 
 function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
+  const { t } = useTranslation();
   const [form, setForm] = useState({
     name: '',
     email: '',
@@ -45,7 +47,7 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
 
   const sendReservationToSheet = async () => {
     if (!BOOKING_WEB_APP_URL) {
-      throw new Error('Configuration Google Sheet manquante.');
+      throw new Error(t('cars.sheetError'));
     }
 
     const payload = {
@@ -72,7 +74,7 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
     const response = await fetch(url.toString());
     const result = await response.json();
     if (!result.ok) {
-      throw new Error(result.error || 'La reservation n a pas ete enregistree.');
+      throw new Error(result.error || t('cars.submitError'));
     }
   };
 
@@ -81,15 +83,15 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
     setSubmitMessage(null);
 
     const message = [
-      `*Nouvelle Réservation*`,
+      t('cars.bookingTitle'),
       ``,
-      `*Voiture :* ${car.name}`,
-      `*Prix :* ${car.price} MAD / ${car.duration}`,
-      `*Nom :* ${form.name}`,
-      `*Email :* ${form.email}`,
-      `*Téléphone :* ${form.phone}`,
-      `*Date de départ :* ${form.startDate}`,
-      `*Date de retour :* ${form.endDate}`,
+      t('cars.carField') + car.name,
+      t('cars.priceField') + `${car.price} MAD / ${car.duration}`,
+      t('cars.nameField') + form.name,
+      t('cars.emailField') + form.email,
+      t('cars.phoneField') + form.phone,
+      t('cars.startField') + form.startDate,
+      t('cars.endField') + form.endDate,
     ].join('\n');
 
     const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`;
@@ -97,9 +99,9 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
 
     try {
       await sendReservationToSheet();
-      setSubmitMessage('Reservation envoyee avec succes.');
+      setSubmitMessage(t('cars.successMessage'));
     } catch (err) {
-      const message = err instanceof Error ? err.message : 'Erreur pendant l envoi vers Google Sheet.';
+      const message = err instanceof Error ? err.message : t('cars.submitErrorMessage');
       setSubmitMessage(message);
     }
   };
@@ -112,20 +114,20 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
         <button
           onClick={onClose}
           className="absolute top-4 right-4 w-8 h-8 rounded-full bg-remons-light-gray flex items-center justify-center hover:bg-remons-primary hover:text-white transition-colors"
-          aria-label="Fermer"
+          aria-label={t('cars.modal.close')}
         >
           <X size={18} />
         </button>
 
         <h3 className="font-poppins text-xl font-bold text-remons-dark mb-1">
-          Réserver
+          {t('cars.modal.title')}
         </h3>
         <p className="text-remons-gray text-sm font-inter mb-6">{car.name}</p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-remons-dark text-sm font-inter font-medium mb-1.5">
-              Nom complet
+              {t('cars.modal.name')}
             </label>
             <input
               type="text"
@@ -134,13 +136,13 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
               value={form.name}
               onChange={handleChange}
               className="w-full border border-remons-border rounded-xl px-4 py-3 text-sm font-inter focus:outline-none focus:ring-2 focus:ring-remons-primary"
-              placeholder="Votre nom"
+              placeholder={t('cars.modal.namePlaceholder')}
             />
           </div>
 
           <div>
             <label className="block text-remons-dark text-sm font-inter font-medium mb-1.5">
-              Téléphone
+              {t('cars.modal.phone')}
             </label>
             <input
               type="tel"
@@ -149,13 +151,13 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
               value={form.phone}
               onChange={handleChange}
               className="w-full border border-remons-border rounded-xl px-4 py-3 text-sm font-inter focus:outline-none focus:ring-2 focus:ring-remons-primary"
-              placeholder="+212 6XX XX XX XX"
+              placeholder={t('cars.modal.phonePlaceholder')}
             />
           </div>
 
           <div>
             <label className="block text-remons-dark text-sm font-inter font-medium mb-1.5">
-              Email
+              {t('cars.modal.email')}
             </label>
             <input
               type="email"
@@ -164,20 +166,20 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
               value={form.email}
               onChange={handleChange}
               className="w-full border border-remons-border rounded-xl px-4 py-3 text-sm font-inter focus:outline-none focus:ring-2 focus:ring-remons-primary"
-              placeholder="client@email.com"
+              placeholder={t('cars.modal.emailPlaceholder')}
             />
           </div>
 
           <div className="grid grid-cols-2 gap-3">
             <DatePicker
-              label="Date de départ"
+              label={t('cars.modal.startDate')}
               value={form.startDate}
               onChange={(v) => setForm((p) => ({ ...p, startDate: v }))}
               min={today}
               required
             />
             <DatePicker
-              label="Date de retour"
+              label={t('cars.modal.endDate')}
               value={form.endDate}
               onChange={(v) => setForm((p) => ({ ...p, endDate: v }))}
               min={today}
@@ -187,7 +189,7 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
 
           <div>
             <label className="block text-remons-dark text-sm font-inter font-medium mb-1.5">
-              Voiture choisie
+              {t('cars.modal.selectedCar')}
             </label>
             <input
               type="text"
@@ -201,7 +203,7 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
             type="submit"
             className="btn-primary w-full font-poppins text-sm py-3.5"
           >
-            Envoyer via WhatsApp
+            {t('cars.modal.submit')}
           </button>
           {submitMessage && (
             <p className="text-center text-xs font-inter text-remons-gray">
@@ -215,6 +217,7 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
 }
 
 export default function CarRentals() {
+  const { t } = useTranslation();
   const [cars, setCars] = useState<Car[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -247,7 +250,7 @@ export default function CarRentals() {
     return (
       <section id="cars" className="bg-white py-[100px]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-red-500 text-lg">Impossible de charger les voitures pour le moment.</p>
+          <p className="text-red-500 text-lg">{t('cars.error')}</p>
         </div>
       </section>
     );
@@ -258,13 +261,10 @@ export default function CarRentals() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-12">
           <span className="text-remons-primary text-[13px] font-inter font-medium uppercase tracking-wider">
-            DÉCOUVREZ NOS NOUVEAUX VÉHICULES
+            {t('cars.subtitle')}
           </span>
-          <h2 className="font-poppins text-3xl sm:text-[42px] font-bold text-remons-dark leading-[1.2] mt-3">
-            Voitures Que Nous Proposons
-            <br />
-            À La Location
-          </h2>
+          <h2 className="font-poppins text-3xl sm:text-[42px] font-bold text-remons-dark leading-[1.2] mt-3"
+            dangerouslySetInnerHTML={{ __html: t('cars.title') }} />
         </div>
 
         {loading ? (
@@ -323,7 +323,7 @@ export default function CarRentals() {
                   <div className="grid grid-cols-2 gap-3 mb-5">
                     <div className="flex items-center gap-2">
                       <Users size={14} className="text-remons-gray" />
-                      <span className="text-remons-gray text-sm font-inter">{car.seats} Places</span>
+                      <span className="text-remons-gray text-sm font-inter">{car.seats} {t('cars.seats')}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Settings2 size={14} className="text-remons-gray" />
@@ -331,7 +331,7 @@ export default function CarRentals() {
                     </div>
                     <div className="flex items-center gap-2">
                       <DoorOpen size={14} className="text-remons-gray" />
-                      <span className="text-remons-gray text-sm font-inter">{car.doors} Portes</span>
+                      <span className="text-remons-gray text-sm font-inter">{car.doors} {t('cars.doors')}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Fuel size={14} className="text-remons-gray" />
@@ -343,7 +343,7 @@ export default function CarRentals() {
                     onClick={() => setSelectedCar(car)}
                     className="w-full flex items-center justify-center gap-2 bg-remons-light-gray text-remons-dark font-poppins text-sm font-medium py-3 rounded-xl hover:bg-remons-primary hover:text-white hover:shadow-button transition-all duration-300"
                   >
-                    Réserver Maintenant
+                    {t('cars.bookNow')}
                     <ArrowRight size={16} />
                   </button>
                 </div>

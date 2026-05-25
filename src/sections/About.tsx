@@ -1,26 +1,26 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { MousePointerClick, MapPin, ChevronDown } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { DatePicker } from '@/components/DatePicker';
 
 const PHONE = '212661341407';
-const locations = ['Agence', 'Aéroport'];
-
-const features = [
-  {
-    icon: MousePointerClick,
-    title: 'Réservations Rapides & Faciles',
-    desc: 'Réservez votre voiture en minutes grâce à notre processus simplifié.',
-  },
-  {
-    icon: MapPin,
-    title: 'Multiples Lieux de Prise en Charge',
-    desc: 'Plusieurs emplacements pratiques à travers la ville.',
-  },
-];
 
 export default function About() {
+  const { t } = useTranslation();
+  const locations = [t('about.agency'), t('about.airport')];
+
+  const features = [
+    {
+      icon: MousePointerClick,
+      titleKey: 'booking',
+    },
+    {
+      icon: MapPin,
+      titleKey: 'locations',
+    },
+  ];
   const [fromDate, setFromDate] = useState('');
   const [toDate, setToDate] = useState('');
   const [carNames, setCarNames] = useState<string[]>([]);
@@ -36,12 +36,12 @@ export default function About() {
 
   const handleBooking = () => {
     const message = [
-      '*Nouvelle Réservation*',
+      t('about.bookingTitle'),
       '',
-      '*Lieu :* ' + location,
-      '*Véhicule :* ' + (vehicleType || 'Non spécifié'),
-      '*Date de départ :* ' + (fromDate || 'Non spécifiée'),
-      '*Date de retour :* ' + (toDate || 'Non spécifiée'),
+      t('about.locationField') + location,
+      t('about.vehicleField') + (vehicleType || t('about.notSpecified')),
+      t('about.startField') + (fromDate || t('about.notSpecifiedF')),
+      t('about.endField') + (toDate || t('about.notSpecifiedF')),
     ].join('\n');
     window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`, '_blank');
   };
@@ -71,36 +71,28 @@ export default function About() {
                 <path d="M6 10l-2-5" stroke="#08B5F4" strokeWidth="1.5" fill="none"/>
               </svg>
               <span className="text-remons-primary text-[13px] font-inter font-medium uppercase tracking-wider">
-                YACOUT TOURS À MARRAKECH
+                {t('about.subtitle')}
               </span>
             </div>
 
-            {/* Title */}
-            <h2 className="font-poppins text-3xl sm:text-[42px] font-bold text-remons-dark leading-[1.2] mb-6 animate-item">
-              Votre agence de location
-              <br />
-              à Marrakech
-            </h2>
+            <h2 className="font-poppins text-3xl sm:text-[42px] font-bold text-remons-dark leading-[1.2] mb-6 animate-item"
+              dangerouslySetInnerHTML={{ __html: t('about.title') }} />
 
-            {/* Description */}
             <p className="text-remons-gray text-base font-inter leading-relaxed mb-10 animate-item">
-              Yacout Tours propose la meilleure sélection de voitures à des prix
-              imbattables pour vos séjours à Marrakech. Profitez du Maroc en toute
-              liberté : ville rouge, désert, vallée de l&apos;Ourika, Haut Atlas,
-              Essaouira, Ouarzazate et excursions sur mesure.
+              {t('about.description')}
             </p>
 
             {/* Features */}
             <div className="grid sm:grid-cols-2 gap-6">
-              {features.map((feature) => (
-                <div key={feature.title} className="animate-item">
+              {features.map((f) => (
+                <div key={f.titleKey} className="animate-item">
                   <div className="w-14 h-14 rounded-full bg-gradient-to-br from-remons-primary to-remons-primary-light shadow-button flex items-center justify-center mb-4">
-                    <feature.icon size={24} className="text-white" />
+                    <f.icon size={24} className="text-white" />
                   </div>
                   <h4 className="font-poppins text-lg font-semibold text-remons-dark mb-1">
-                    {feature.title}
+                    {t(`about.features.${f.titleKey}.title`)}
                   </h4>
-                  <p className="text-remons-gray text-sm font-inter">{feature.desc}</p>
+                  <p className="text-remons-gray text-sm font-inter">{t(`about.features.${f.titleKey}.desc`)}</p>
                 </div>
               ))}
             </div>
@@ -110,7 +102,7 @@ export default function About() {
           <div ref={rightRef} className="relative">
             <img
               src={img('/images/about-man.png')}
-              alt="Consultant professionnel"
+              alt={t('about.consultantAlt')}
               loading="lazy"
               className="w-full max-w-[400px] mx-auto object-contain relative z-10"
             />
@@ -120,7 +112,7 @@ export default function About() {
               <div className="space-y-3">
                 <div>
                   <label className="block text-white text-[12px] font-inter font-medium mb-1.5">
-                    Lieu de prise en charge
+                    {t('about.pickupLabel')}
                   </label>
                   <div className="relative">
                     <select
@@ -139,7 +131,7 @@ export default function About() {
                 <div className="grid grid-cols-2 gap-2">
                   <div>
                     <label className="block text-white text-[12px] font-inter font-medium mb-1.5">
-                      Date de départ
+                      {t('about.startDateLabel')}
                     </label>
                     <DatePicker
                       value={fromDate}
@@ -148,7 +140,7 @@ export default function About() {
                   </div>
                   <div>
                     <label className="block text-white text-[12px] font-inter font-medium mb-1.5">
-                      Date de retour
+                      {t('about.endDateLabel')}
                     </label>
                     <DatePicker
                       value={toDate}
@@ -159,7 +151,7 @@ export default function About() {
 
                 <div>
                   <label className="block text-white text-[12px] font-inter font-medium mb-1.5">
-                    Type de véhicule
+                    {t('about.vehicleLabel')}
                   </label>
                   <div className="relative">
                     <select
@@ -167,7 +159,7 @@ export default function About() {
                       onChange={(e) => setVehicleType(e.target.value)}
                       className="w-full bg-white rounded-lg px-3 py-2.5 pr-8 appearance-none font-inter text-remons-dark text-sm focus:outline-none"
                     >
-                      <option value="">Sélectionnez un véhicule</option>
+                      <option value="">{t('about.vehiclePlaceholder')}</option>
                       {carNames.map((name) => (
                         <option key={name} value={name}>{name}</option>
                       ))}
@@ -181,7 +173,7 @@ export default function About() {
                   onClick={handleBooking}
                   className="w-full bg-remons-secondary text-white font-poppins text-sm font-semibold py-2.5 rounded-lg hover:bg-slate-950 hover:-translate-y-0.5 transition-all duration-300"
                 >
-                  Réserver Maintenant
+                  {t('about.bookNow')}
                 </button>
               </div>
             </div>

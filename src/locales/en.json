@@ -16,7 +16,10 @@
     "contact": "Contact",
     "findCar": "Find a Car",
     "brand": "YACOUT",
-    "brandSub": "tours"
+    "brandSub": "tours",
+    "callUs": "Call us anytime",
+    "search": "Search",
+    "menu": "Menu"
   },
   "hero": {
     "subtitle": "Yacout Tours Marrakech",
@@ -29,7 +32,14 @@
     "vehiclePlaceholder": "Select a vehicle",
     "bookNow": "Book Now",
     "agency": "Agency",
-    "airport": "Airport"
+    "airport": "Airport",
+    "bookingTitle": "*New Reservation*",
+    "locationField": "*Location:* ",
+    "vehicleField": "*Vehicle:* ",
+    "pickupField": "*Pick-up Date:* ",
+    "returnField": "*Return Date:* ",
+    "notSpecified": "Not specified",
+    "notSpecifiedF": "Not specified"
   },
   "about": {
     "subtitle": "YACOUT TOURS IN MARRAKECH",
@@ -50,35 +60,60 @@
     "endDateLabel": "Return Date",
     "vehicleLabel": "Vehicle Type",
     "vehiclePlaceholder": "Select a vehicle",
-    "bookNow": "Book Now"
+    "bookNow": "Book Now",
+    "agency": "Agency",
+    "airport": "Airport",
+    "consultantAlt": "Professional consultant",
+    "bookingTitle": "*New Reservation*",
+    "carField": "*Car:* ",
+    "priceField": "*Price:* ",
+    "nameField": "*Name:* ",
+    "emailField": "*Email:* ",
+    "phoneField": "*Phone:* ",
+    "startField": "*Start Date:* ",
+    "endField": "*Return Date:* ",
+    "sheetError": "Google Sheet configuration missing.",
+    "submitError": "Reservation could not be saved.",
+    "successMessage": "Reservation sent successfully.",
+    "submitErrorMessage": "Error during submission to Google Sheet."
   },
   "cars": {
-    "sectionTitle": "DISCOVER OUR NEW VEHICLES",
-    "sectionHeading": "Cars We Offer<br/>For Rent",
-    "seats": "Seats",
-    "doors": "Doors",
-    "bookNow": "Book Now",
+    "subtitle": "DISCOVER OUR NEW VEHICLES",
+    "title": "Cars We Offer<br/>For Rent",
+    "error": "Unable to load cars at the moment.",
     "modal": {
+      "close": "Close",
       "title": "Book",
-      "nameLabel": "Full Name",
+      "name": "Full Name",
       "namePlaceholder": "Your name",
-      "phoneLabel": "Phone",
+      "phone": "Phone",
       "phonePlaceholder": "+212 6XX XX XX XX",
-      "emailLabel": "Email",
+      "email": "Email",
       "emailPlaceholder": "client@email.com",
-      "startDateLabel": "Start Date",
-      "endDateLabel": "Return Date",
-      "carLabel": "Selected Car",
-      "submit": "Send via WhatsApp",
-      "close": "Close"
+      "startDate": "Start Date",
+      "endDate": "Return Date",
+      "selectedCar": "Selected Car",
+      "submit": "Send via WhatsApp"
     },
-    "error": "Unable to load cars at this time.",
-    "yearModel": "Model",
-    "reviews": "Reviews",
-    "per": "/"
+    "bookingTitle": "*New Reservation*",
+    "carField": "*Car:* ",
+    "priceField": "*Price:* ",
+    "nameField": "*Name:* ",
+    "emailField": "*Email:* ",
+    "phoneField": "*Phone:* ",
+    "startField": "*Start Date:* ",
+    "endField": "*Return Date:* ",
+    "sheetError": "Google Sheet configuration missing.",
+    "submitError": "Reservation could not be saved.",
+    "successMessage": "Reservation sent successfully.",
+    "submitErrorMessage": "Error during submission to Google Sheet.",
+    "bookNow": "Book Now",
+    "seats": "Seats",
+    "doors": "Doors"
   },
   "gallery": {
-    "title": "Trusted<br/>Car Rental<br/>Service"
+    "title": "Reliable &amp; Trustworthy<br/>Car Rental",
+    "alt": "Gallery"
   },
   "features": {
     "express": {
@@ -95,13 +130,26 @@
     }
   },
   "testimonials": {
+    "testimonial1": "Thanks to their excellent service, competitive prices, and customer support. It's truly refreshing to receive such personalized attention.",
+    "testimonial2": "Thanks to their excellent service, competitive prices, and customer support. It's truly refreshing to receive such personalized attention.",
+    "testimonial3": "Thanks to their excellent service, competitive prices, and customer support. It's truly refreshing to receive such personalized attention.",
     "role": "Client",
     "prev": "Previous testimonial",
     "next": "Next testimonial"
   },
   "faq": {
     "sectionTitle": "FREQUENTLY ASKED QUESTIONS",
-    "sectionHeading": "Have questions<br/>about car rental ?"
+    "sectionHeading": "Have questions<br/>about car rental ?",
+    "moreQuestions": "Have other questions ?",
+    "contactWhatsApp": "Contact us on WhatsApp",
+    "q1": "How to book a car ?",
+    "a1": "Booking is simple and fast. Choose your vehicle, select your pick-up and return dates, then confirm your reservation online. Our team will contact you to finalize the details.",
+    "q2": "What payment methods are accepted ?",
+    "a2": "We accept bank cards (Visa, Mastercard), bank transfers, and cash payments upon vehicle pick-up.",
+    "q3": "Can I cancel my reservation ?",
+    "a3": "Yes, you can cancel your reservation up to 24 hours before the pick-up date free of charge. A 50% fee applies for late cancellations.",
+    "q4": "Is there a mileage limit ?",
+    "a4": "Our packages include unlimited mileage on most of our vehicles. Some premium models may have a daily limit, please check the conditions when booking."
   },
   "footer": {
     "tagline": "The best selection of cars at unbeatable prices",
@@ -113,7 +161,8 @@
   "pwa": {
     "installTitle": "Install Yacout Tours",
     "installDesc": "Add to your home screen",
-    "install": "Install"
+    "install": "Install",
+    "close": "Close"
   },
   "language": {
     "fr": "Français",

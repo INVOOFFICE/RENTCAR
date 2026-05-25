@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 import { ChevronDown } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { DatePicker } from '@/components/DatePicker';
 
 const PHONE = '212661341407';
-const locations = ['Agence', 'Aéroport'];
 
 export default function Hero() {
+  const { t } = useTranslation();
+  const locations = [t('hero.agency'), t('hero.airport')];
   const sectionRef = useRef<HTMLElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
@@ -62,12 +64,12 @@ export default function Hero() {
 
   const handleBooking = () => {
     const message = [
-      '*Nouvelle Réservation*',
+      t('hero.bookingTitle'),
       '',
-      '*Lieu :* ' + location,
-      '*Véhicule :* ' + (vehicleType || 'Non spécifié'),
-      '*Date de prise en charge :* ' + (pickupDate || 'Non spécifiée'),
-      '*Date de retour :* ' + (returnDate || 'Non spécifiée'),
+      t('hero.locationField') + location,
+      t('hero.vehicleField') + (vehicleType || t('hero.notSpecified')),
+      t('hero.pickupField') + (pickupDate || t('hero.notSpecifiedF')),
+      t('hero.returnField') + (returnDate || t('hero.notSpecifiedF')),
     ].join('\n');
     window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`, '_blank');
   };
@@ -100,15 +102,10 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 lg:pt-[125px]">
         <div ref={titleRef} className="max-w-lg pt-6 sm:pt-10 lg:pt-0 lg:ml-[12%]">
           <p className="text-white/90 text-sm font-poppins tracking-[0.2em] uppercase mb-4">
-            Yacout Tours Marrakech
+            {t('hero.subtitle')}
           </p>
-          <h1 className="font-poppins text-4xl sm:text-5xl lg:text-[52px] font-bold text-white leading-[1.2]">
-            Location de Voitures
-            <br />
-            À Prix Imbattables
-            <br />
-            Au Maroc
-          </h1>
+          <h1 className="font-poppins text-4xl sm:text-5xl lg:text-[52px] font-bold text-white leading-[1.2]"
+            dangerouslySetInnerHTML={{ __html: t('hero.title') }} />
         </div>
       </div>
 
@@ -121,7 +118,7 @@ export default function Hero() {
           {/* Lieu de prise en charge */}
           <div>
             <label className="block text-white text-[13px] font-inter font-medium mb-2">
-              Lieu de prise en charge
+              {t('hero.pickupLabel')}
             </label>
             <div className="relative">
               <select
@@ -141,7 +138,7 @@ export default function Hero() {
           <div className="grid grid-cols-2 gap-2 sm:gap-3">
             <div>
               <label className="block text-white text-[13px] font-inter font-medium mb-2">
-                Date de prise en charge
+                {t('hero.startDateLabel')}
               </label>
               <DatePicker
                   value={pickupDate}
@@ -150,7 +147,7 @@ export default function Hero() {
             </div>
             <div>
               <label className="block text-white text-[13px] font-inter font-medium mb-2">
-                Date de retour
+                {t('hero.endDateLabel')}
               </label>
               <DatePicker
                   value={returnDate}
@@ -162,7 +159,7 @@ export default function Hero() {
           {/* Type de véhicule */}
           <div>
             <label className="block text-white text-[13px] font-inter font-medium mb-2">
-              Type de véhicule
+              {t('hero.vehicleLabel')}
             </label>
             <div className="relative">
               <select
@@ -170,7 +167,7 @@ export default function Hero() {
                 onChange={(e) => setVehicleType(e.target.value)}
                 className="w-full bg-white rounded-xl px-4 py-3.5 pr-10 appearance-none font-inter text-remons-dark text-sm focus:outline-none focus:ring-2 focus:ring-white/30"
               >
-                <option value="">Sélectionnez un véhicule</option>
+                <option value="">{t('hero.vehiclePlaceholder')}</option>
                 {carNames.map((name) => (
                   <option key={name} value={name}>{name}</option>
                 ))}
@@ -185,7 +182,7 @@ export default function Hero() {
             onClick={handleBooking}
             className="w-full bg-remons-secondary text-white font-poppins text-sm font-semibold py-3.5 rounded-xl hover:bg-slate-950 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
           >
-            Réserver Maintenant
+            {t('hero.bookNow')}
           </button>
         </div>
       </div>

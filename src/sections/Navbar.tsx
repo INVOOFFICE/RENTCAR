@@ -1,22 +1,25 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Phone, Search, Menu, X } from 'lucide-react';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { img } from '@/lib/utils';
 
-const navLinks = [
-  { label: 'Accueil', href: '#' },
-  { label: 'À Propos', href: '#about' },
-  { label: 'Galerie', href: '#gallery' },
-  { label: 'Voitures', href: '#cars' },
-  { label: 'Contact', href: '#contact' },
+const navKeys = [
+  { key: 'home', href: '#' },
+  { key: 'about', href: '#about' },
+  { key: 'gallery', href: '#gallery' },
+  { key: 'cars', href: '#cars' },
+  { key: 'contact', href: '#contact' },
 ];
 
 export default function Navbar() {
+  const { t } = useTranslation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navLinks.map(l => l.href.replace('#', ''));
+      const sections = navKeys.map(l => l.href.replace('#', ''));
       for (const id of sections.reverse()) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= 120) {
@@ -42,19 +45,19 @@ export default function Navbar() {
 
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => {
+            {navKeys.map((link) => {
               const sectionId = link.href.replace('#', '');
               const isActive = sectionId ? activeSection === sectionId : activeSection === '';
               return (
                 <a
-                  key={link.label}
+                  key={link.key}
                   href={link.href}
                   className={`
                     font-poppins text-[15px] font-medium transition-colors relative
                     ${isActive ? 'text-remons-primary' : 'text-remons-dark hover:text-remons-primary'}
                   `}
                 >
-                  {link.label}
+                  {t(`navbar.${link.key}`)}
                   {isActive && (
                     <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-remons-primary rounded-full" />
                   )}
@@ -71,7 +74,7 @@ export default function Navbar() {
                 <Phone size={18} className="text-white" />
               </div>
               <div className="leading-tight">
-                <p className="text-[11px] text-remons-gray font-inter">Appelez à tout moment</p>
+                <p className="text-[11px] text-remons-gray font-inter">{t('navbar.callUs')}</p>
                 <p className="text-[15px] font-poppins font-semibold text-remons-dark">+212 6 61 34 14 07</p>
               </div>
             </div>
@@ -80,16 +83,19 @@ export default function Navbar() {
             <div className="w-px h-10 bg-remons-border" />
 
             {/* Search */}
-            <button className="p-2 hover:text-remons-primary transition-colors" aria-label="Rechercher">
+            <button className="p-2 hover:text-remons-primary transition-colors" aria-label={t('navbar.search')}>
               <Search size={20} />
             </button>
+
+            {/* Language */}
+            <LanguageSwitcher variant="dark" />
 
             {/* CTA Button */}
             <a
               href="#cars"
               className="btn-primary inline-flex items-center justify-center font-poppins text-sm px-6 py-3"
             >
-              Trouver une Voiture
+              {t('navbar.findCar')}
             </a>
           </div>
 
@@ -97,7 +103,7 @@ export default function Navbar() {
           <button
             className="lg:hidden p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Menu"
+            aria-label={t('navbar.menu')}
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -108,14 +114,14 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-t border-remons-border">
           <div className="px-4 py-4 space-y-3">
-            {navLinks.map((link) => (
+            {navKeys.map((link) => (
               <a
-                key={link.label}
+                key={link.key}
                 href={link.href}
                 className="block font-poppins text-base font-medium text-remons-dark hover:text-remons-primary transition-colors py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {link.label}
+                {t(`navbar.${link.key}`)}
               </a>
             ))}
             <a
@@ -123,8 +129,11 @@ export default function Navbar() {
               className="btn-primary block font-poppins text-sm text-center mt-4"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Trouver une Voiture
+              {t('navbar.findCar')}
             </a>
+            <div className="pt-2">
+              <LanguageSwitcher variant="dark" />
+            </div>
           </div>
         </div>
       )}

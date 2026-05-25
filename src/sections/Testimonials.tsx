@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -6,27 +7,25 @@ const testimonials = [
   {
     id: 1,
     name: 'Christine Eve',
-    role: 'Client',
     initials: 'CE',
-    text: 'Grâce à leur excellent service, leurs prix compétitifs et leur support client. C\'est vraiment rafraîchissant de bénéficier d\'une attention si personnalisée.',
+    textKey: 'testimonial1',
   },
   {
     id: 2,
     name: 'Mike Hardson',
-    role: 'Client',
     initials: 'MH',
-    text: 'Grâce à leur excellent service, leurs prix compétitifs et leur support client. C\'est vraiment rafraîchissant de bénéficier d\'une attention si personnalisée.',
+    textKey: 'testimonial2',
   },
   {
     id: 3,
     name: 'Shirley Smith',
-    role: 'Client',
     initials: 'SS',
-    text: 'Grâce à leur excellent service, leurs prix compétitifs et leur support client. C\'est vraiment rafraîchissant de bénéficier d\'une attention si personnalisée.',
+    textKey: 'testimonial3',
   },
 ];
 
 export default function Testimonials() {
+  const { t } = useTranslation();
   const [current, setCurrent] = useState(0);
   const sectionRef = useScrollAnimation<HTMLElement>({ animation: 'fadeInUp' });
 
@@ -41,9 +40,9 @@ export default function Testimonials() {
           <div className="text-center max-w-2xl mx-auto">
             {/* Avatars Row */}
             <div className="flex items-center justify-center gap-3 mb-8">
-              {testimonials.map((t, i) => (
+              {testimonials.map((tItem, i) => (
                 <button
-                  key={t.id}
+                  key={tItem.id}
                   onClick={() => setCurrent(i)}
                   className={`w-[60px] h-[60px] rounded-full overflow-hidden border-3 transition-all duration-300 flex items-center justify-center text-white font-poppins font-bold text-lg ${
                     i === current
@@ -51,14 +50,14 @@ export default function Testimonials() {
                       : 'border-transparent opacity-60 hover:opacity-80 bg-remons-primary/60'
                   }`}
                 >
-                  {t.initials}
+                  {tItem.initials}
                 </button>
               ))}
             </div>
 
             {/* Quote */}
             <p className="text-remons-gray text-base sm:text-lg font-inter leading-relaxed italic mb-6">
-              &ldquo;{testimonials[current].text}&rdquo;
+              &ldquo;{t(`testimonials.${testimonials[current].textKey}`)}&rdquo;
             </p>
 
             {/* Name */}
@@ -66,7 +65,7 @@ export default function Testimonials() {
               {testimonials[current].name}
             </h4>
             <span className="text-remons-primary text-[13px] font-inter font-medium uppercase tracking-wider">
-              {testimonials[current].role}
+              {t('testimonials.role')}
             </span>
           </div>
 
@@ -75,14 +74,14 @@ export default function Testimonials() {
             <button
               onClick={prev}
               className="w-10 h-10 rounded-full border border-remons-border flex items-center justify-center hover:bg-remons-primary hover:text-white hover:border-remons-primary transition-all duration-300"
-              aria-label="Témoignage précédent"
+              aria-label={t('testimonials.prev')}
             >
               <ChevronLeft size={18} />
             </button>
             <button
               onClick={next}
               className="w-10 h-10 rounded-full border border-remons-border flex items-center justify-center hover:bg-remons-primary hover:text-white hover:border-remons-primary transition-all duration-300"
-              aria-label="Témoignage suivant"
+              aria-label={t('testimonials.next')}
             >
               <ChevronRight size={18} />
             </button>

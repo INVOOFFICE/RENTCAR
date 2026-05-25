@@ -1,8 +1,10 @@
+import { useTranslation } from 'react-i18next';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import { ImagePlus } from 'lucide-react';
 import { img } from '@/lib/utils';
 
 export default function Gallery() {
+  const { t } = useTranslation();
   const sectionRef = useScrollAnimation<HTMLElement>({
     animation: 'fadeIn',
   });
@@ -22,7 +24,7 @@ export default function Gallery() {
               <div key={i} className="gallery-item aspect-[4/3] relative rounded-xl overflow-hidden group">
                 <img
                   src={img(`/images/car-${i + 1}.jpg`)}
-                  alt={`Galerie ${i + 1}`}
+                  alt={`${t('gallery.alt')} ${i + 1}`}
                   loading="lazy"
                   className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
                 />
@@ -40,13 +42,8 @@ export default function Gallery() {
               <div className="w-14 h-14 rounded-full border-2 border-white/40 flex items-center justify-center mx-auto mb-6">
                 <ImagePlus size={28} className="text-white" />
               </div>
-              <h3 className="font-poppins text-2xl font-bold text-white leading-tight mb-6">
-                Location de Voitures
-                <br />
-                de Confiance
-                <br />
-                &amp; Fiable
-              </h3>
+              <h3 className="font-poppins text-2xl font-bold text-white leading-tight mb-6"
+                dangerouslySetInnerHTML={{ __html: t('gallery.title') }} />
               <a
                 href="#cars"
                 className="w-14 h-14 rounded-full bg-white text-remons-primary flex items-center justify-center mx-auto hover:scale-110 hover:shadow-lg transition-all duration-300"

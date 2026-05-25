@@ -16,7 +16,10 @@
     "contact": "Contact",
     "findCar": "Trouver une Voiture",
     "brand": "YACOUT",
-    "brandSub": "tours"
+    "brandSub": "tours",
+    "callUs": "Appelez à tout moment",
+    "search": "Rechercher",
+    "menu": "Menu"
   },
   "hero": {
     "subtitle": "Yacout Tours Marrakech",
@@ -29,7 +32,14 @@
     "vehiclePlaceholder": "Sélectionnez un véhicule",
     "bookNow": "Réserver Maintenant",
     "agency": "Agence",
-    "airport": "Aéroport"
+    "airport": "Aéroport",
+    "bookingTitle": "*Nouvelle Réservation*",
+    "locationField": "*Lieu :* ",
+    "vehicleField": "*Véhicule :* ",
+    "pickupField": "*Date de prise en charge :* ",
+    "returnField": "*Date de retour :* ",
+    "notSpecified": "Non spécifié",
+    "notSpecifiedF": "Non spécifiée"
   },
   "about": {
     "subtitle": "YACOUT TOURS À MARRAKECH",
@@ -50,35 +60,60 @@
     "endDateLabel": "Date de retour",
     "vehicleLabel": "Type de véhicule",
     "vehiclePlaceholder": "Sélectionnez un véhicule",
-    "bookNow": "Réserver Maintenant"
+    "bookNow": "Réserver Maintenant",
+    "agency": "Agence",
+    "airport": "Aéroport",
+    "consultantAlt": "Consultant professionnel",
+    "bookingTitle": "*Nouvelle Réservation*",
+    "carField": "*Voiture :* ",
+    "priceField": "*Prix :* ",
+    "nameField": "*Nom :* ",
+    "emailField": "*Email :* ",
+    "phoneField": "*Téléphone :* ",
+    "startField": "*Date de départ :* ",
+    "endField": "*Date de retour :* ",
+    "sheetError": "Configuration Google Sheet manquante.",
+    "submitError": "La réservation n'a pas été enregistrée.",
+    "successMessage": "Réservation envoyée avec succès.",
+    "submitErrorMessage": "Erreur pendant l'envoi vers Google Sheet."
   },
   "cars": {
-    "sectionTitle": "DÉCOUVREZ NOS NOUVEAUX VÉHICULES",
-    "sectionHeading": "Voitures Que Nous Proposons<br/>À La Location",
-    "seats": "Places",
-    "doors": "Portes",
-    "bookNow": "Réserver Maintenant",
-    "modal": {
-      "title": "Réserver",
-      "nameLabel": "Nom complet",
-      "namePlaceholder": "Votre nom",
-      "phoneLabel": "Téléphone",
-      "phonePlaceholder": "+212 6XX XX XX XX",
-      "emailLabel": "Email",
-      "emailPlaceholder": "client@email.com",
-      "startDateLabel": "Date de départ",
-      "endDateLabel": "Date de retour",
-      "carLabel": "Voiture choisie",
-      "submit": "Envoyer via WhatsApp",
-      "close": "Fermer"
-    },
+    "subtitle": "DÉCOUVREZ NOS NOUVEAUX VÉHICULES",
+    "title": "Voitures Que Nous Proposons<br/>À La Location",
     "error": "Impossible de charger les voitures pour le moment.",
-    "yearModel": "Modèle",
-    "reviews": "Avis",
-    "per": "/"
+    "modal": {
+      "close": "Fermer",
+      "title": "Réserver",
+      "name": "Nom complet",
+      "namePlaceholder": "Votre nom",
+      "phone": "Téléphone",
+      "phonePlaceholder": "+212 6XX XX XX XX",
+      "email": "Email",
+      "emailPlaceholder": "client@email.com",
+      "startDate": "Date de départ",
+      "endDate": "Date de retour",
+      "selectedCar": "Voiture choisie",
+      "submit": "Envoyer via WhatsApp"
+    },
+    "bookingTitle": "*Nouvelle Réservation*",
+    "carField": "*Voiture :* ",
+    "priceField": "*Prix :* ",
+    "nameField": "*Nom :* ",
+    "emailField": "*Email :* ",
+    "phoneField": "*Téléphone :* ",
+    "startField": "*Date de départ :* ",
+    "endField": "*Date de retour :* ",
+    "sheetError": "Configuration Google Sheet manquante.",
+    "submitError": "La réservation n'a pas été enregistrée.",
+    "successMessage": "Réservation envoyée avec succès.",
+    "submitErrorMessage": "Erreur pendant l'envoi vers Google Sheet.",
+    "bookNow": "Réserver Maintenant",
+    "seats": "Places",
+    "doors": "Portes"
   },
   "gallery": {
-    "title": "Location de Voitures<br/>de Confiance<br/>&amp; Fiable"
+    "title": "Location de Voitures<br/>de Confiance<br/>&amp; Fiable",
+    "alt": "Galerie"
   },
   "features": {
     "express": {
@@ -95,13 +130,26 @@
     }
   },
   "testimonials": {
+    "testimonial1": "Grâce à leur excellent service, leurs prix compétitifs et leur support client. C'est vraiment rafraîchissant de bénéficier d'une attention si personnalisée.",
+    "testimonial2": "Grâce à leur excellent service, leurs prix compétitifs et leur support client. C'est vraiment rafraîchissant de bénéficier d'une attention si personnalisée.",
+    "testimonial3": "Grâce à leur excellent service, leurs prix compétitifs et leur support client. C'est vraiment rafraîchissant de bénéficier d'une attention si personnalisée.",
     "role": "Client",
     "prev": "Témoignage précédent",
     "next": "Témoignage suivant"
   },
   "faq": {
     "sectionTitle": "QUESTIONS FRÉQUENTES",
-    "sectionHeading": "Vous avez des questions<br/>sur la location ?"
+    "sectionHeading": "Vous avez des questions<br/>sur la location ?",
+    "moreQuestions": "Vous avez d'autres questions ?",
+    "contactWhatsApp": "Contactez-nous sur WhatsApp",
+    "q1": "Comment réserver une voiture ?",
+    "a1": "La réservation est simple et rapide. Choisissez votre véhicule, sélectionnez vos dates de prise en charge et de retour, puis confirmez votre réservation en ligne. Notre équipe vous contactera pour finaliser les détails.",
+    "q2": "Quels sont les modes de paiement acceptés ?",
+    "a2": "Nous acceptons les cartes bancaires (Visa, Mastercard), les virements bancaires et les paiements en espèces lors de la prise en charge du véhicule.",
+    "q3": "Puis-je annuler ma réservation ?",
+    "a3": "Oui, vous pouvez annuler votre réservation jusqu'à 24 heures avant la date de prise en charge sans frais. Des frais de 50 % s'appliquent pour les annulations tardives.",
+    "q4": "Y a-t-il une limite de kilométrage ?",
+    "a4": "Nos forfaits incluent un kilométrage illimité sur la plupart de nos véhicules. Certains modèles premium peuvent avoir une limite journalière, veuillez vérifier les conditions lors de la réservation."
   },
   "footer": {
     "tagline": "La meilleure sélection de voitures à des prix imbattables",
@@ -113,7 +161,8 @@
   "pwa": {
     "installTitle": "Installer Yacout Tours",
     "installDesc": "Ajoutez à votre écran d'accueil",
-    "install": "Installer"
+    "install": "Installer",
+    "close": "Fermer"
   },
   "language": {
     "fr": "Français",

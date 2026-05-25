@@ -1,9 +1,11 @@
 
+import { useTranslation } from 'react-i18next';
 import { ArrowUp } from 'lucide-react';
 import { img } from '@/lib/utils';
 import { useState } from 'react';
 import TermsModal from '@/components/TermsModal';
 import PrivacyModal from '@/components/PrivacyModal';
+
 const socialLinks = [
   {
     name: 'Facebook',
@@ -24,6 +26,7 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const { t } = useTranslation();
   const [termsOpen, setTermsOpen] = useState(false);
   const [privacyOpen, setPrivacyOpen] = useState(false);
   return (
@@ -38,7 +41,7 @@ export default function Footer() {
 
           {/* Tagline */}
           <p className="text-white/80 font-poppins text-lg font-semibold">
-            La meilleure sélection de voitures à des prix imbattables
+            {t('footer.tagline')}
           </p>
 
           {/* Social */}
@@ -61,20 +64,20 @@ export default function Footer() {
         {/* Copyright */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/50 text-sm font-inter">
-            &copy; {new Date().getFullYear()} Yacout Tours — 100 Rue Mohammed el Beqal, Marrakech 40000, Maroc — +212 6 61 34 14 07 — yacout.tours@gmail.com
+            &copy; {new Date().getFullYear()} {t('footer.copyright')} — {t('common.address')} — {t('common.phone')} — {t('common.email')}
             {' — '}
             <button onClick={() => setTermsOpen(true)} className="underline hover:text-white transition-colors">
-              Terms & Conditions
+              {t('footer.terms')}
             </button>
             {' — '}
             <button onClick={() => setPrivacyOpen(true)} className="underline hover:text-white transition-colors">
-              Politique de confidentialité
+              {t('footer.privacy')}
             </button>
           </p>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-remons-primary hover:text-white transition-all duration-300"
-            aria-label="Retour en haut"
+            aria-label={t('footer.backToTop')}
           >
             <ArrowUp size={16} />
           </button>
