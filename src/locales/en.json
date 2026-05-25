@@ -1,0 +1,122 @@
+{
+  "common": {
+    "phone": "+212 6 61 34 14 07",
+    "email": "yacout.tours@gmail.com",
+    "address": "100 Rue Mohammed el Beqal, Marrakech 40000, Morocco"
+  },
+  "topbar": {
+    "email": "yacout.tours@gmail.com",
+    "address": "100 Rue Mohammed el Beqal, Marrakech"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "gallery": "Gallery",
+    "cars": "Cars",
+    "contact": "Contact",
+    "findCar": "Find a Car",
+    "brand": "YACOUT",
+    "brandSub": "tours"
+  },
+  "hero": {
+    "subtitle": "Yacout Tours Marrakech",
+    "title": "Car Rental<br/>At Unbeatable Prices<br/>In Morocco",
+    "pickupLabel": "Pick-up Location",
+    "pickupPlaceholder": "Select",
+    "startDateLabel": "Pick-up Date",
+    "endDateLabel": "Return Date",
+    "vehicleLabel": "Vehicle Type",
+    "vehiclePlaceholder": "Select a vehicle",
+    "bookNow": "Book Now",
+    "agency": "Agency",
+    "airport": "Airport"
+  },
+  "about": {
+    "subtitle": "YACOUT TOURS IN MARRAKECH",
+    "title": "Your car rental agency<br/>in Marrakech",
+    "description": "Yacout Tours offers the best selection of cars at unbeatable prices for your stay in Marrakech. Enjoy Morocco in total freedom: red city, desert, Ourika Valley, High Atlas, Essaouira, Ouarzazate and custom excursions.",
+    "features": {
+      "booking": {
+        "title": "Fast & Easy Booking",
+        "desc": "Book your car in minutes with our simplified process."
+      },
+      "locations": {
+        "title": "Multiple Pick-up Locations",
+        "desc": "Several convenient locations throughout the city."
+      }
+    },
+    "pickupLabel": "Pick-up Location",
+    "startDateLabel": "Start Date",
+    "endDateLabel": "Return Date",
+    "vehicleLabel": "Vehicle Type",
+    "vehiclePlaceholder": "Select a vehicle",
+    "bookNow": "Book Now"
+  },
+  "cars": {
+    "sectionTitle": "DISCOVER OUR NEW VEHICLES",
+    "sectionHeading": "Cars We Offer<br/>For Rent",
+    "seats": "Seats",
+    "doors": "Doors",
+    "bookNow": "Book Now",
+    "modal": {
+      "title": "Book",
+      "nameLabel": "Full Name",
+      "namePlaceholder": "Your name",
+      "phoneLabel": "Phone",
+      "phonePlaceholder": "+212 6XX XX XX XX",
+      "emailLabel": "Email",
+      "emailPlaceholder": "client@email.com",
+      "startDateLabel": "Start Date",
+      "endDateLabel": "Return Date",
+      "carLabel": "Selected Car",
+      "submit": "Send via WhatsApp",
+      "close": "Close"
+    },
+    "error": "Unable to load cars at this time.",
+    "yearModel": "Model",
+    "reviews": "Reviews",
+    "per": "/"
+  },
+  "gallery": {
+    "title": "Trusted<br/>Car Rental<br/>Service"
+  },
+  "features": {
+    "express": {
+      "title": "Express Booking",
+      "desc": "Book in 2 clicks, pick up your vehicle immediately."
+    },
+    "insurance": {
+      "title": "Insurance Included",
+      "desc": "All our vehicles are covered by comprehensive insurance."
+    },
+    "support": {
+      "title": "24/7 Support",
+      "desc": "A team available anytime to assist you."
+    }
+  },
+  "testimonials": {
+    "role": "Client",
+    "prev": "Previous testimonial",
+    "next": "Next testimonial"
+  },
+  "faq": {
+    "sectionTitle": "FREQUENTLY ASKED QUESTIONS",
+    "sectionHeading": "Have questions<br/>about car rental ?"
+  },
+  "footer": {
+    "tagline": "The best selection of cars at unbeatable prices",
+    "copyright": "Yacout Tours",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "backToTop": "Back to top"
+  },
+  "pwa": {
+    "installTitle": "Install Yacout Tours",
+    "installDesc": "Add to your home screen",
+    "install": "Install"
+  },
+  "language": {
+    "fr": "Français",
+    "en": "English"
+  }
+}

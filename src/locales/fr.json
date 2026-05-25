@@ -1,0 +1,122 @@
+{
+  "common": {
+    "phone": "+212 6 61 34 14 07",
+    "email": "yacout.tours@gmail.com",
+    "address": "100 Rue Mohammed el Beqal, Marrakech 40000, Maroc"
+  },
+  "topbar": {
+    "email": "yacout.tours@gmail.com",
+    "address": "100 Rue Mohammed el Beqal, Marrakech"
+  },
+  "navbar": {
+    "home": "Accueil",
+    "about": "À Propos",
+    "gallery": "Galerie",
+    "cars": "Voitures",
+    "contact": "Contact",
+    "findCar": "Trouver une Voiture",
+    "brand": "YACOUT",
+    "brandSub": "tours"
+  },
+  "hero": {
+    "subtitle": "Yacout Tours Marrakech",
+    "title": "Location de Voitures<br/>À Prix Imbattables<br/>Au Maroc",
+    "pickupLabel": "Lieu de prise en charge",
+    "pickupPlaceholder": "Sélectionnez",
+    "startDateLabel": "Date de prise en charge",
+    "endDateLabel": "Date de retour",
+    "vehicleLabel": "Type de véhicule",
+    "vehiclePlaceholder": "Sélectionnez un véhicule",
+    "bookNow": "Réserver Maintenant",
+    "agency": "Agence",
+    "airport": "Aéroport"
+  },
+  "about": {
+    "subtitle": "YACOUT TOURS À MARRAKECH",
+    "title": "Votre agence de location<br/>à Marrakech",
+    "description": "Yacout Tours propose la meilleure sélection de voitures à des prix imbattables pour vos séjours à Marrakech. Profitez du Maroc en toute liberté : ville rouge, désert, vallée de l'Ourika, Haut Atlas, Essaouira, Ouarzazate et excursions sur mesure.",
+    "features": {
+      "booking": {
+        "title": "Réservations Rapides & Faciles",
+        "desc": "Réservez votre voiture en minutes grâce à notre processus simplifié."
+      },
+      "locations": {
+        "title": "Multiples Lieux de Prise en Charge",
+        "desc": "Plusieurs emplacements pratiques à travers la ville."
+      }
+    },
+    "pickupLabel": "Lieu de prise en charge",
+    "startDateLabel": "Date de départ",
+    "endDateLabel": "Date de retour",
+    "vehicleLabel": "Type de véhicule",
+    "vehiclePlaceholder": "Sélectionnez un véhicule",
+    "bookNow": "Réserver Maintenant"
+  },
+  "cars": {
+    "sectionTitle": "DÉCOUVREZ NOS NOUVEAUX VÉHICULES",
+    "sectionHeading": "Voitures Que Nous Proposons<br/>À La Location",
+    "seats": "Places",
+    "doors": "Portes",
+    "bookNow": "Réserver Maintenant",
+    "modal": {
+      "title": "Réserver",
+      "nameLabel": "Nom complet",
+      "namePlaceholder": "Votre nom",
+      "phoneLabel": "Téléphone",
+      "phonePlaceholder": "+212 6XX XX XX XX",
+      "emailLabel": "Email",
+      "emailPlaceholder": "client@email.com",
+      "startDateLabel": "Date de départ",
+      "endDateLabel": "Date de retour",
+      "carLabel": "Voiture choisie",
+      "submit": "Envoyer via WhatsApp",
+      "close": "Fermer"
+    },
+    "error": "Impossible de charger les voitures pour le moment.",
+    "yearModel": "Modèle",
+    "reviews": "Avis",
+    "per": "/"
+  },
+  "gallery": {
+    "title": "Location de Voitures<br/>de Confiance<br/>&amp; Fiable"
+  },
+  "features": {
+    "express": {
+      "title": "Réservation Express",
+      "desc": "Réservez en 2 clics, récupérez votre véhicule immédiatement."
+    },
+    "insurance": {
+      "title": "Assurance Incluse",
+      "desc": "Tous nos véhicules sont couverts par une assurance complète."
+    },
+    "support": {
+      "title": "Support 24/7",
+      "desc": "Une équipe disponible à tout moment pour vous assister."
+    }
+  },
+  "testimonials": {
+    "role": "Client",
+    "prev": "Témoignage précédent",
+    "next": "Témoignage suivant"
+  },
+  "faq": {
+    "sectionTitle": "QUESTIONS FRÉQUENTES",
+    "sectionHeading": "Vous avez des questions<br/>sur la location ?"
+  },
+  "footer": {
+    "tagline": "La meilleure sélection de voitures à des prix imbattables",
+    "copyright": "Yacout Tours",
+    "terms": "Terms & Conditions",
+    "privacy": "Politique de confidentialité",
+    "backToTop": "Retour en haut"
+  },
+  "pwa": {
+    "installTitle": "Installer Yacout Tours",
+    "installDesc": "Ajoutez à votre écran d'accueil",
+    "install": "Installer"
+  },
+  "language": {
+    "fr": "Français",
+    "en": "English"
+  }
+}
