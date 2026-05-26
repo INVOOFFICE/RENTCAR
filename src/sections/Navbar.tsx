@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Phone, Search, Menu, X } from 'lucide-react';
+import { Phone, Menu, X } from 'lucide-react';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { img } from '@/lib/utils';
 
@@ -96,17 +96,6 @@ export default function Navbar() {
                 <p className="text-[15px] font-poppins font-semibold text-remons-dark">+212 6 61 34 14 07</p>
               </div>
             </div>
-
-            {/* Separator */}
-            <div className="w-px h-10 bg-remons-border" />
-
-            {/* Search */}
-            <button className="p-2 hover:text-remons-primary transition-colors" aria-label={t('navbar.search')}>
-              <Search size={20} />
-            </button>
-
-            {/* Language */}
-            <LanguageSwitcher variant="dark" />
 
             {/* CTA Button */}
             <a
