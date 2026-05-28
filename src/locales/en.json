@@ -71,6 +71,7 @@
     "nameField": "*Name:* ",
     "emailField": "*Email:* ",
     "phoneField": "*Phone:* ",
+    "locationField": "*Location:* ",
     "startField": "*Start Date:* ",
     "endField": "*Return Date:* ",
     "sheetError": "Google Sheet configuration missing.",
@@ -93,6 +94,7 @@
       "emailPlaceholder": "client@email.com",
       "startDate": "Start Date",
       "endDate": "Return Date",
+      "location": "Pick-up / Delivery Location",
       "selectedCar": "Selected Car",
       "submit": "Send via WhatsApp"
     },
@@ -102,6 +104,7 @@
     "nameField": "*Name:* ",
     "emailField": "*Email:* ",
     "phoneField": "*Phone:* ",
+    "locationField": "*Location:* ",
     "startField": "*Start Date:* ",
     "endField": "*Return Date:* ",
     "sheetError": "Google Sheet configuration missing.",

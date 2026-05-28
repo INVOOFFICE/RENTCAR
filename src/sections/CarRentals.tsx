@@ -32,12 +32,24 @@ function encodePayload(payload: unknown) {
 
 function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
   const { t } = useTranslation();
+  const locations = [
+    'Marrakech ville', 'Aéroport Marrakech',
+    'Casablanca ville', 'Aéroport Casablanca',
+    'Rabat ville', 'Aéroport Rabat',
+    'Agadir ville', 'Aéroport Agadir',
+    'Fès ville', 'Aéroport Fès',
+    'Ouarzazate ville', 'Aéroport Ouarzazate',
+    'Essaouira ville', 'Aéroport Essaouira',
+    'Tanger ville', 'Aéroport Tanger',
+  ];
+
   const [form, setForm] = useState({
     name: '',
     email: '',
     phone: '',
     startDate: '',
     endDate: '',
+    location: locations[0],
   });
   const [submitMessage, setSubmitMessage] = useState<string | null>(null);
 
@@ -62,6 +74,7 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
         carDuration: car.duration,
         startDate: form.startDate,
         endDate: form.endDate,
+        location: form.location,
       },
     };
 
@@ -87,6 +100,7 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
       ``,
       t('cars.carField') + car.name,
       t('cars.priceField') + `${car.price} MAD / ${car.duration}`,
+      t('cars.locationField') + form.location,
       t('cars.nameField') + form.name,
       t('cars.emailField') + form.email,
       t('cars.phoneField') + form.phone,
@@ -185,6 +199,22 @@ function BookingModal({ car, onClose }: { car: Car; onClose: () => void }) {
               min={today}
               required
             />
+          </div>
+
+          <div>
+            <label className="block text-remons-dark text-sm font-inter font-medium mb-1.5">
+              {t('cars.modal.location')}
+            </label>
+            <select
+              name="location"
+              value={form.location}
+              onChange={(e) => setForm((p) => ({ ...p, location: e.target.value }))}
+              className="w-full border border-remons-border rounded-xl px-4 py-3 text-sm font-inter focus:outline-none focus:ring-2 focus:ring-remons-primary bg-white appearance-none"
+            >
+              {locations.map((loc) => (
+                <option key={loc} value={loc}>{loc}</option>
+              ))}
+            </select>
           </div>
 
           <div>
