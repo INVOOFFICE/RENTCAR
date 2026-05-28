@@ -96,7 +96,7 @@
     "transmission": "Manual",
     "doors": 5,
     "fuel": "Petrol",
-    "image": "/images/car-placeholder.jpg"
+    "image": "https://www.hyundai.com/content/dam/hyundai/ma/fr/images/test/TEST2/1120X600-6.png"
   },
   {
     "id": 10,
