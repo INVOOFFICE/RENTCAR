@@ -145,7 +145,7 @@ export default function About() {
           {/* Right - Image + Form */}
           <div ref={rightRef} className="relative">
             <img
-              src={img('/images/about-man.png')}
+              src={img('/images/f.jpg')}
               alt={t('about.consultantAlt')}
               loading="lazy"
               className="w-full max-w-[400px] mx-auto object-contain relative z-10"

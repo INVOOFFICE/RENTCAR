@@ -119,7 +119,7 @@ export default function Hero() {
           <p className="text-white/90 text-sm font-poppins tracking-[0.2em] uppercase mb-4">
             {t('hero.subtitle')}
           </p>
-          <h1 className="font-poppins text-4xl sm:text-5xl lg:text-[52px] font-bold text-white leading-[1.2]"
+          <h1 className="font-poppins text-4xl sm:text-5xl lg:text-[48px] font-bold text-white leading-[1.2]"
             dangerouslySetInnerHTML={{ __html: t('hero.title') }} />
         </div>
 
