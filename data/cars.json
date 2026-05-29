@@ -114,9 +114,9 @@
     "price": 30,
     "duration": "jour",
     "seats": 5,
-    "transmission": "Manuelle",
+    "transmission": "Manual",
     "doors": 4,
     "fuel": "Essence",
-    "image": "/images/car-placeholder.jpg"
+    "image": "https://cdn.group.renault.com/dac/master/dacia-vn/vehicules/sandero/sandero-bi1-ph2/herozone-banners/sandero-bi1-ph2-herozone-001-desktop.jpg.ximg.largex2.webp/717a1a8991.webp"
   }
 ]
