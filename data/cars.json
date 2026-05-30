@@ -98,14 +98,14 @@
   {
     "id": 9,
     "name": "Peugeot 3008",
-    "category": "CAT D",
+    "category": "CAT A",
     "price": 70,
     "duration": "jour",
     "seats": 5,
     "transmission": "Automatic",
     "doors": 5,
     "fuel": "Diesel",
-    "image": "https://www.yacout-tours.com/uploads/cars/6cdf6c57c838d45d322d9939ea7cbada.png"
+    "image": "https://jyvpiuuzsllqaqtfogfz.supabase.co/storage/v1/object/public/invo/Peugeot%203008_9_11zon.jpg"
   },
   {
     "id": 10,
