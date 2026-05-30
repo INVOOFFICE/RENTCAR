@@ -62,14 +62,14 @@
   {
     "id": 6,
     "name": "Citroen C3 Aircross",
-    "category": "CAT C",
+    "category": "CAT A",
     "price": 45,
     "duration": "jour",
     "seats": 5,
     "transmission": "Manuelle",
     "doors": 4,
     "fuel": "Diesel",
-    "image": "https://www.yacout-tours.com/uploads/cars/bbcdd79820ec2d5cb2a7e1c774615685.png"
+    "image": "https://jyvpiuuzsllqaqtfogfz.supabase.co/storage/v1/object/public/invo/Citroen%20C3%20Aircross_2_11zon.jpg"
   },
   {
     "id": 7,
