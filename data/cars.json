@@ -18,9 +18,9 @@
     "price": 30,
     "duration": "jour",
     "seats": 5,
-    "transmission": "Manuelle",
+    "transmission": "Manual",
     "doors": 4,
-    "fuel": "Essence",
+    "fuel": "Petrol",
     "image": "https://jyvpiuuzsllqaqtfogfz.supabase.co/storage/v1/object/public/invo/Kia-Picanto_7_11zon.jpg"
   },
   {
