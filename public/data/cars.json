@@ -38,14 +38,14 @@
   {
     "id": 4,
     "name": "Renault-Clio 5",
-    "category": "CAT B",
+    "category": "CAT A",
     "price": 35,
     "duration": "jour",
     "seats": 5,
     "transmission": "Manuelle",
     "doors": 4,
     "fuel": "Diesel",
-    "image": "https://www.yacout-tours.com/uploads/cars/d020349aa9ad9f17c9f06a2309f6fdfd.png"
+    "image": "https://jyvpiuuzsllqaqtfogfz.supabase.co/storage/v1/object/public/invo/Renault-Clio%205_10_11zon.jpg"
   },
   {
     "id": 5,
