@@ -74,14 +74,14 @@
   {
     "id": 7,
     "name": "Dacia Duster",
-    "category": "CAT C",
+    "category": "CAT A",
     "price": 45,
     "duration": "jour",
     "seats": 5,
     "transmission": "Manual",
     "doors": 5,
     "fuel": "Diesel",
-    "image": "https://www.yacout-tours.com/uploads/cars/d41f952198f26b0ebbdcbc6e94bf36b1.png"
+    "image": "https://jyvpiuuzsllqaqtfogfz.supabase.co/storage/v1/object/public/invo/Dacia%20Duster_3_11zon.jpg"
   },
   {
     "id": 8,
